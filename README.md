@@ -6,9 +6,9 @@ status changes (down → alert, back up → recovery notice).
 
 ## Features
 
-- YAML-configured target list — name, URL, timeout, expected status code
+- YAML-configured target list - name, URL, timeout, expected status code
 - Persists every check (status, latency, error) to SQLite for history/uptime %
-- Only alerts on **state changes**, not every failed check — no spam
+- Only alerts on **state changes**, not every failed check - no spam
 - Discord embed alerts (red for down, green for recovered)
 - `--once` flag for cron/Task Scheduler; otherwise loops on its own interval
 
@@ -27,7 +27,7 @@ python monitor.py                 # run continuously on the configured interval
 Each cycle, every target is requested with `requests`. A check counts as "up"
 only if the response status code matches `expected_status`. The result is
 written to `checks` (full history) and compared against `last_status` (the
-most recent known state per target) — an alert only fires when those two
+most recent known state per target) - an alert only fires when those two
 disagree, so a site that's been down for an hour doesn't ping you every
 minute.
 
